@@ -20,6 +20,7 @@ env:
   BUCKET_TF_STATE: ${{ secrets.BUCKET_TF_STATE }}
   AWS_REGION: us-east-1
   EKS_CLUSTER: vprofile-eks
+  Terrraform_VERSION: 1.5.0
   
 jobs:
   terraform:
@@ -35,6 +36,8 @@ jobs:
 
         - name: Setup Terraform
           uses: hashicorp/setup-terraform@v2
+          with:
+            terraform_version: ${{ env.TERRAFORM_VERSION }}
             
         - name: Terraform Init
           id: init
