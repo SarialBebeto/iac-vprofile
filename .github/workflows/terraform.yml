@@ -55,6 +55,7 @@ jobs:
           run: terraform plan -out=tfplan -input=false -no-color 
           continue-on-error: true
           # continue-on-error: true is used to allow the workflow to continue even if the plan fails.
+          #.
         
         - name: Terraform plan status
           if: steps.plan.outcome == 'failure'
